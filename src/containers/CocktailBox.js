@@ -8,6 +8,7 @@ const CocktailBox = () => {
     const [cocktailImgURL, setCocktailImgURL] = useState("");
     const [cocktailInstructions, setCocktailInstructions] = useState("")
     const [showInstructions, setShowInstructions] = useState(false);
+    const [isShaking, setIsShaking] = useState(false);
 
 
     useEffect(() => {
@@ -18,8 +19,20 @@ const CocktailBox = () => {
         setShowInstructions(false);
     }, [randomCocktail]);
 
+    useEffect(() => {
+        if (isShaking) {
+            const timerId = setTimeout(() => {
+                setIsShaking(false);
+            }, 1000);
+            return () => clearTimeout(timerId);
+        }
+    }, [isShaking]);
+
 
     const getRandomCocktail = function () {
+
+        setIsShaking(true);
+
         const request = fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
         .then(response => response.json())
         .then(data => {
@@ -37,11 +50,16 @@ const CocktailBox = () => {
         setShowInstructions(true);
     }
 
+    const handleButtonClick = function () {
+        setIsShaking(true);
+        getRandomCocktail();
+    };
+
     return (
         <div className="cocktail-box">
             
             <div>
-            <button onClick={getRandomCocktail}>Get Drunk!</button>
+            <button className={isShaking ? "shake" : ""} onClick={handleButtonClick}>Get Drunk!</button>
             </div>
 
         <CocktailDisplay 
