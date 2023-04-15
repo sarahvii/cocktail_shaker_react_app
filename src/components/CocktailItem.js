@@ -1,10 +1,11 @@
 import React from "react";
+import './CocktailItem.css';
 
 const CocktailItem = ({cocktailInstructions}) => {
     return ( 
-        <div className="cocktail-details">
+        <div className="cocktail-item">
         <p>This is the cocktail item.</p>
-        <p>{cocktailInstructions}</p>
+        {/* <p>{cocktailInstructions}</p> */}
 
         </div>
      );

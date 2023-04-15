@@ -1,0 +1,13 @@
+.cocktail-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    background-color: yellow; 
+    font-size: 14px;
+}
+
+.cocktail-item img {
+    max-width: 100%;
+}
