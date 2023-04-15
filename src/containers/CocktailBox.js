@@ -6,8 +6,10 @@ const CocktailBox = () => {
 
     const [randomCocktail, setRandomCocktail] = useState({});
     const [cocktailImgURL, setCocktailImgURL] = useState("");
-    const [cocktailInstructions, setCocktailInstructions] = useState("")
+    const [cocktailInstructions, setCocktailInstructions] = useState("");
+    const [cocktailIngredients, setCocktailIngredients] = useState("");
     const [showInstructions, setShowInstructions] = useState(false);
+    const [showIngredients, setShowIngredients] = useState(false);
     const [isShaking, setIsShaking] = useState(false);
 
 
@@ -17,6 +19,7 @@ const CocktailBox = () => {
 
     useEffect(() => {
         setShowInstructions(false);
+        setShowIngredients(false);
     }, [randomCocktail]);
 
     useEffect(() => {
@@ -39,15 +42,18 @@ const CocktailBox = () => {
             const drink = data.drinks[0];
             const imgURL = drink.strDrinkThumb;
             const instructions = drink.strInstructions;
+            const ingredients = drink.strIngredient1;
             setRandomCocktail({strDrink: drink.strDrink})
             setCocktailImgURL(imgURL);
             setCocktailInstructions(instructions);
+            setCocktailIngredients(ingredients);
         })
         .catch(error => console.log(error));
     };
 
     const handleCocktailClick = function () {
         setShowInstructions(true);
+        setShowIngredients(true);
     }
 
     const handleButtonClick = function () {
@@ -66,7 +72,10 @@ const CocktailBox = () => {
         randomCocktail={randomCocktail} 
         cocktailImgURL={cocktailImgURL} 
         cocktailInstructions={cocktailInstructions}
+        cocktailIngredients={cocktailIngredients}
         showInstructions={showInstructions}
+        showIngredients={showIngredients}
+        setShowIngredients={showIngredients}
         onCocktailClicked={handleCocktailClick}/>
         </div>
     );

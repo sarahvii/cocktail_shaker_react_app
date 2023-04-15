@@ -1,10 +1,11 @@
 import React from "react";
 import './CocktailItem.css';
 
-const CocktailItem = ({cocktailInstructions}) => {
+const CocktailItem = ({cocktailInstructions, cocktailIngredients}) => {
     return ( 
         <div className="cocktail-item">
-        <p>{cocktailInstructions}</p> 
+        <p>Ingredients:{cocktailIngredients}</p>
+        <p>Instructions: {cocktailInstructions}</p>
 
         </div>
      );
