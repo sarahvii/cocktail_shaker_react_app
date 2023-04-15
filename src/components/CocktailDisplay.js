@@ -13,7 +13,7 @@ const CocktailDisplay = ({randomCocktail, cocktailImgURL, cocktailInstructions, 
 
     return (
         <div className="cocktail-display">
-            <p>Cocktail Name: {randomCocktail.strDrink}</p>
+            <h2>{randomCocktail.strDrink}</h2>
             <img src={cocktailImgURL} alt={randomCocktail.strDrink} onClick={onCocktailClicked} />
             {showInstructions && <CocktailItem cocktailInstructions={cocktailInstructions} />}
         </div>

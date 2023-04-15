@@ -2,10 +2,12 @@
     display: flex;
     align-items: row;
     justify-content: center;
-    max-width: 400px;
+    width: 300px;
     max-height: 200px;
-    background-color: yellow; 
+    background-color: lightseagreen;
     font-size: 14px;
+    margin: 20px;
+    border: solid black 2px;
 }
 
 .cocktail-item img {

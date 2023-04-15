@@ -1,6 +1,6 @@
 .cocktail-box {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
 }
 
@@ -12,14 +12,16 @@
 button {
     margin-bottom: 1rem;
     padding: 10px 20px;
-    background-color: #0077cc;
+    background-color: lightseagreen;
     color: white;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
     font-weight: bold;
-    border-radius: 4px;
+    text-align: center;
+    border-radius: 15px;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
     height: 50px;
-    width: 100px;
+    width: 150px;
 }

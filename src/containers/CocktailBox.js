@@ -39,7 +39,11 @@ const CocktailBox = () => {
 
     return (
         <div className="cocktail-box">
-        <button onClick={getRandomCocktail}>Get Drunk!</button>
+            
+            <div>
+            <button onClick={getRandomCocktail}>Get Drunk!</button>
+            </div>
+
         <CocktailDisplay 
         randomCocktail={randomCocktail} 
         cocktailImgURL={cocktailImgURL} 
