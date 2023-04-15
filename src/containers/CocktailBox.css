@@ -1,7 +1,7 @@
 .cocktail-box {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .cocktail-display img {

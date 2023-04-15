@@ -14,6 +14,10 @@ const CocktailBox = () => {
         getRandomCocktail();
     }, [])
 
+    useEffect(() => {
+        setShowInstructions(false);
+    }, [randomCocktail]);
+
 
     const getRandomCocktail = function () {
         const request = fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
@@ -25,7 +29,6 @@ const CocktailBox = () => {
             setRandomCocktail({strDrink: drink.strDrink})
             setCocktailImgURL(imgURL);
             setCocktailInstructions(instructions);
-            setShowInstructions(false);
         })
         .catch(error => console.log(error));
     };
@@ -43,7 +46,6 @@ const CocktailBox = () => {
         cocktailInstructions={cocktailInstructions}
         showInstructions={showInstructions}
         onCocktailClicked={handleCocktailClick}/>
-        {/* {showInstructions && <CocktailItem cocktailInstructions={cocktailInstructions} />} */}
         </div>
     );
 }
