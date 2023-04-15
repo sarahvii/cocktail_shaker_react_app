@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import CocktailDisplay from "../components/CocktailDisplay";
+import './CocktailBox.css';
 
 const CocktailBox = () => {
 
@@ -35,14 +36,14 @@ const CocktailBox = () => {
 
     return (
         <div className="cocktail-box">
-        <h1>Cocktail Shaker</h1>
         <button onClick={getRandomCocktail}>Get Drunk!</button>
         <CocktailDisplay 
         randomCocktail={randomCocktail} 
         cocktailImgURL={cocktailImgURL} 
+        cocktailInstructions={cocktailInstructions}
+        showInstructions={showInstructions}
         onCocktailClicked={handleCocktailClick}/>
-        {showInstructions && <p>{cocktailInstructions}</p>}
-
+        {/* {showInstructions && <CocktailItem cocktailInstructions={cocktailInstructions} />} */}
         </div>
     );
 }
