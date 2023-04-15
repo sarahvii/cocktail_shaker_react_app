@@ -1,10 +1,11 @@
 import React from "react";
 
-const CocktailItem = ({randomCocktail}) => {
+const CocktailItem = ({cocktailInstructions}) => {
     return ( 
         <div className="cocktail-details">
         <p>This is the cocktail details.</p>
-        {{randomCocktail}}
+        <p>{cocktailInstructions}</p>
+
         </div>
      );
 }
