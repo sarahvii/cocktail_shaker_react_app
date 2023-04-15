@@ -6,6 +6,7 @@ const CocktailBox = () => {
     const [randomCocktail, setRandomCocktail] = useState({});
     const [cocktailImgURL, setCocktailImgURL] = useState("");
     const [cocktailInstructions, setCocktailInstructions] = useState("")
+    
 
 
     useEffect(() => {
@@ -30,7 +31,9 @@ const CocktailBox = () => {
     return (
         <div className="cocktail-box">
         <p>This is the Cocktail Box</p>
+        <button onClick={getRandomCocktail}>Get Drunk!</button>
         <CocktailDisplay randomCocktail={randomCocktail} cocktailImgURL={cocktailImgURL} cocktailInstructions={cocktailInstructions}/>
+
         </div>
     );
 }
