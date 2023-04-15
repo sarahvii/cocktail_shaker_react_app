@@ -61,11 +61,38 @@ const CocktailBox = () => {
         getRandomCocktail();
     };
 
+    const handleGinButtonClick = function () {
+
+        setIsShaking(true);
+
+        const request = fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin")
+        .then((response) => response.json())
+        .then((data) => {
+            const cocktails = data.drinks.filter(
+                (drink) => drink.strDrink !== randomCocktail.strDrink
+            );
+            const randomIndex = Math.floor(Math.random() * cocktails.length);
+            const randomCocktailData = cocktails[randomIndex];
+  
+            const imgURL = randomCocktailData.strDrinkThumb;
+            const instructions = randomCocktailData.strInstructions;
+            const ingredients = randomCocktailData.strIngredient1;
+
+            setRandomCocktail({ strDrink: randomCocktailData.strDrink });
+            setCocktailImgURL(imgURL);
+            setCocktailInstructions(instructions);
+            setCocktailIngredients(ingredients);
+        })
+        .catch((error) => console.log(error));
+
+    }
+
     return (
         <div className="cocktail-box">
             
             <div>
             <button className={isShaking ? "shake" : ""} onClick={handleButtonClick}>Get Drunk!</button>
+            <button className={isShaking ? "shake" : ""} onClick={handleGinButtonClick}>Gin</button>
             </div>
 
         <CocktailDisplay 
