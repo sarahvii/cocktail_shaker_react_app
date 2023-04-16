@@ -9,7 +9,8 @@ const CocktailDisplay = ({randomCocktail, cocktailImgURL, cocktailInstructions, 
     return (
         <div className="cocktail-display">
             <h2>{randomCocktail.strDrink}</h2>
-            <img src={cocktailImgURL} alt={randomCocktail.strDrink} onClick={onCocktailClicked} />
+            Click image for recipe
+            <p><img src={cocktailImgURL} alt={randomCocktail.strDrink} onClick={onCocktailClicked} /></p>
             {showInstructions && <CocktailItem cocktailInstructions={cocktailInstructions} cocktailIngredients={cocktailIngredients}/>}
         </div>
     );
